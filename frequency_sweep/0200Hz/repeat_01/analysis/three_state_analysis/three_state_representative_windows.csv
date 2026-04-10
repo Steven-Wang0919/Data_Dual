@@ -1,0 +1,4 @@
+label,selected_start_s,selected_end_s,selected_center_s,selected_window_target_amp,segment_samples
+no_audio,2.6,2.8,2.7,1.795427370006301e-07,200
+without_object,17.7,17.9,17.799999999999997,0.4751000302268025,200
+with_object,5.9,6.1,6.0,0.0319959262885107,200
