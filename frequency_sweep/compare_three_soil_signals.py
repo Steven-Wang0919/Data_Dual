@@ -76,6 +76,13 @@ def ratio(numerator: float, denominator: float) -> float:
     return numerator / denominator
 
 
+def format_frequency_label(target_freq: float) -> str:
+    rounded = round(target_freq)
+    if np.isclose(target_freq, rounded):
+        return f"{int(rounded)}Hz"
+    return f"{target_freq:g}Hz"
+
+
 def select_representative_segment(
     data: dict[str, Any],
     sample_rate: float,
@@ -657,11 +664,12 @@ def main() -> None:
     )
 
     plot_files: list[str] = []
+    frequency_label = format_frequency_label(args.target_freq)
 
     filtered_svg = output_dir / "three_state_filtered_waveform_detail.svg"
     save_svg_line_plot(
         filtered_svg,
-        f"100Hz Band-Pass Detail (Representative {args.detail_seconds:.1f}s)",
+        f"{frequency_label} Band-Pass Detail (Representative {args.detail_seconds:.1f}s)",
         "Time Within Selected Window (s)",
         "ADC",
         [
@@ -723,7 +731,7 @@ def main() -> None:
     representative_svg = output_dir / "three_state_representative_filtered_waveform.svg"
     save_svg_line_plot(
         representative_svg,
-        f"Representative 100Hz Waveform ({args.representative_seconds:.2f}s, Reference Included)",
+        f"Representative {frequency_label} Waveform ({args.representative_seconds:.2f}s, Reference Included)",
         "Time Within Selected Window (s)",
         "ADC",
         [
@@ -777,7 +785,7 @@ def main() -> None:
         ax.set_xlabel("Time Within Selected Window (s)")
         ax.set_ylabel("ADC")
         ax.set_title(
-            f"100Hz Band-Pass Detail (Representative {args.detail_seconds:.1f}s)"
+            f"{frequency_label} Band-Pass Detail (Representative {args.detail_seconds:.1f}s)"
         )
         ax.legend()
         fig.tight_layout()
@@ -845,7 +853,7 @@ def main() -> None:
         ax.set_xlabel("Time Within Selected Window (s)")
         ax.set_ylabel("ADC")
         ax.set_title(
-            f"Representative 100Hz Waveform ({args.representative_seconds:.2f}s, Reference Included)"
+            f"Representative {frequency_label} Waveform ({args.representative_seconds:.2f}s, Reference Included)"
         )
         ax.legend()
         fig.tight_layout()
