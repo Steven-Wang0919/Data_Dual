@@ -43,7 +43,7 @@ def main() -> None:
 
     repeat_dir = Path(__file__).resolve().parent
     project_root = repeat_dir.parents[3]
-    compare_script = project_root / "Python" / "compare_three_soil_signals.py"
+    compare_script = project_root / "Data_Dual" / "frequency_sweep" / "compare_three_soil_signals.py"
 
     raw_dir = repeat_dir / "raw"
     output_dir = repeat_dir / "analysis" / "three_state_analysis"
