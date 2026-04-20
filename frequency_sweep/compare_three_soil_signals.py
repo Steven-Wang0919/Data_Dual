@@ -533,15 +533,14 @@ def main() -> None:
     without_windows = without_data["window_rows"]
     with_windows = with_data["window_rows"]
 
-    spectrum_limit = min(
-        500.0,
-        float(background_data["freqs"][-1]) if background_data["freqs"].size else 500.0,
-        float(without_data["freqs"][-1]) if without_data["freqs"].size else 500.0,
-        float(with_data["freqs"][-1]) if with_data["freqs"].size else 500.0,
+    available_freq_limit = min(
+        float(background_data["freqs"][-1]) if background_data["freqs"].size else args.target_freq,
+        float(without_data["freqs"][-1]) if without_data["freqs"].size else args.target_freq,
+        float(with_data["freqs"][-1]) if with_data["freqs"].size else args.target_freq,
     )
-    bg_limit_idx = np.searchsorted(background_data["freqs"], spectrum_limit, side="right")
-    without_limit_idx = np.searchsorted(without_data["freqs"], spectrum_limit, side="right")
-    with_limit_idx = np.searchsorted(with_data["freqs"], spectrum_limit, side="right")
+    bg_limit_idx = np.searchsorted(background_data["freqs"], available_freq_limit, side="right")
+    without_limit_idx = np.searchsorted(without_data["freqs"], available_freq_limit, side="right")
+    with_limit_idx = np.searchsorted(with_data["freqs"], available_freq_limit, side="right")
 
     background_segment = select_representative_segment(
         background_data,
@@ -573,8 +572,18 @@ def main() -> None:
         args.step_size,
     )
 
-    target_focus_low = max(0.0, args.target_freq - max(40.0, args.target_freq * 0.4))
-    target_focus_high = min(spectrum_limit, args.target_freq + max(120.0, args.target_freq * 1.5))
+    desired_focus_span = max(160.0, args.target_freq * 0.7)
+    focus_half_span = 0.5 * desired_focus_span
+    target_focus_low = args.target_freq - focus_half_span
+    target_focus_high = args.target_freq + focus_half_span
+
+    if target_focus_low < 0.0:
+        target_focus_high = min(available_freq_limit, target_focus_high - target_focus_low)
+        target_focus_low = 0.0
+    if target_focus_high > available_freq_limit:
+        shift_left = target_focus_high - available_freq_limit
+        target_focus_low = max(0.0, target_focus_low - shift_left)
+        target_focus_high = available_freq_limit
 
     write_csv(
         output_dir / "three_state_representative_windows.csv",

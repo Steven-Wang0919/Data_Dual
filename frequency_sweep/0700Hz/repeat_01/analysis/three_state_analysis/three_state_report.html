@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>Three-State Soil Signal Comparison Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; color: #111827; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+    th, td { border: 1px solid #d1d5db; padding: 8px 10px; text-align: left; }
+    th { background: #f3f4f6; }
+    h1, h2 { margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <h1>Three-State Soil Signal Comparison Report</h1>
+  <p>Background: F:\项目类文件夹\异物检测4.10\Data_Dual\frequency_sweep\0700Hz\repeat_01\raw\no_audio.csv</p>
+  <p>Without object: F:\项目类文件夹\异物检测4.10\Data_Dual\frequency_sweep\0700Hz\repeat_01\raw\without_object.csv</p>
+  <p>With object: F:\项目类文件夹\异物检测4.10\Data_Dual\frequency_sweep\0700Hz\repeat_01\raw\with_object.csv</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>无音频</th>
+        <th>100Hz无异物</th>
+        <th>100Hz有异物</th>
+        <th>无异物/无音频</th>
+        <th>有异物/无异物</th>
+        <th>有异物/无音频</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>centered_rms</td><td>0.016021</td><td>0.100612</td><td>0.281152</td><td>6.2799</td><td>2.7944</td><td>17.5486</td></tr><tr><td>raw_target_amp</td><td>0.000058</td><td>0.000870</td><td>0.004968</td><td>14.8857</td><td>5.7132</td><td>85.0446</td></tr><tr><td>filtered_rms</td><td>0.001377</td><td>0.015496</td><td>0.109551</td><td>11.2504</td><td>7.0694</td><td>79.5337</td></tr><tr><td>filtered_target_amp</td><td>0.000058</td><td>0.000870</td><td>0.004968</td><td>14.8857</td><td>5.7132</td><td>85.0446</td></tr><tr><td>filtered_energy_ratio</td><td>0.007391</td><td>0.023723</td><td>0.151827</td><td>3.2095</td><td>6.4000</td><td>20.5409</td></tr><tr><td>window_filtered_target_amp_mean</td><td>0.000694</td><td>0.018346</td><td>0.147099</td><td>26.4398</td><td>8.0180</td><td>211.9951</td></tr><tr><td>window_filtered_target_amp_std</td><td>0.001691</td><td>0.010600</td><td>0.035158</td><td>6.2703</td><td>3.3167</td><td>20.7970</td></tr>
+    </tbody>
+  </table>
+  <h2>three_state_filtered_waveform_detail.svg</h2><img src="three_state_filtered_waveform_detail.svg" style="max-width:100%; border:1px solid #d1d5db;" />
+<h2>three_state_spectrum.svg</h2><img src="three_state_spectrum.svg" style="max-width:100%; border:1px solid #d1d5db;" />
+<h2>three_state_representative_filtered_waveform.svg</h2><img src="three_state_representative_filtered_waveform.svg" style="max-width:100%; border:1px solid #d1d5db;" />
+<h2>three_state_filtered_waveform_detail.png</h2><img src="three_state_filtered_waveform_detail.png" style="max-width:100%; border:1px solid #d1d5db;" />
+<h2>three_state_spectrum.png</h2><img src="three_state_spectrum.png" style="max-width:100%; border:1px solid #d1d5db;" />
+<h2>three_state_representative_filtered_waveform.png</h2><img src="three_state_representative_filtered_waveform.png" style="max-width:100%; border:1px solid #d1d5db;" />
+</body>
+</html>

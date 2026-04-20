@@ -10,7 +10,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run the three-state soil-signal analysis for frequency_sweep/0200Hz/repeat_01."
     )
-    parser.add_argument("--sample-rate", type=float, default=1000.0)
+    parser.add_argument("--sample-rate", type=float, default=2000.0)
     parser.add_argument("--target-freq", type=float, default=200.0)
     parser.add_argument("--band-low", type=float, default=190.0)
     parser.add_argument("--band-high", type=float, default=210.0)
