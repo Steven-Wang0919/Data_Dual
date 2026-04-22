@@ -58,7 +58,8 @@ For each `analysis/` directory, recommended output subfolders are:
 1. Put raw CSV files into the corresponding `raw/` folder.
 2. Run the single-file analysis script for each raw file when needed.
 3. Run the three-state comparison script for each repeat.
-4. Put cross-frequency summaries into `aggregate_analysis/`.
+4. Run `standardize_three_state_plots.py` to refresh the standardized PNG/SVG exports in both `analysis/three_state_analysis` and `Out_Pic/`.
+5. Put cross-frequency summaries into `aggregate_analysis/`.
 
 ## Why This Layout Helps
 
