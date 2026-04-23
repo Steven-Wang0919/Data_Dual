@@ -678,7 +678,7 @@ def main() -> None:
     filtered_svg = output_dir / "three_state_filtered_waveform_detail.svg"
     save_svg_line_plot(
         filtered_svg,
-        f"{frequency_label} Band-Pass Detail (Representative {args.detail_seconds:.1f}s)",
+        f"{frequency_label} Band-Pass Detail",
         "Time Within Selected Window (s)",
         "ADC",
         [
@@ -740,7 +740,7 @@ def main() -> None:
     representative_svg = output_dir / "three_state_representative_filtered_waveform.svg"
     save_svg_line_plot(
         representative_svg,
-        f"Representative {frequency_label} Waveform ({args.representative_seconds:.2f}s, Reference Included)",
+        f"Representative {frequency_label} Waveform",
         "Time Within Selected Window (s)",
         "ADC",
         [
@@ -794,7 +794,7 @@ def main() -> None:
         ax.set_xlabel("Time Within Selected Window (s)")
         ax.set_ylabel("ADC")
         ax.set_title(
-            f"{frequency_label} Band-Pass Detail (Representative {args.detail_seconds:.1f}s)"
+            f"{frequency_label} Band-Pass Detail"
         )
         ax.legend()
         fig.tight_layout()
@@ -862,7 +862,7 @@ def main() -> None:
         ax.set_xlabel("Time Within Selected Window (s)")
         ax.set_ylabel("ADC")
         ax.set_title(
-            f"Representative {frequency_label} Waveform ({args.representative_seconds:.2f}s, Reference Included)"
+            f"Representative {frequency_label} Waveform"
         )
         ax.legend()
         fig.tight_layout()

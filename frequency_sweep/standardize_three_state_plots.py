@@ -79,7 +79,7 @@ WAVEFORM_PLOT_SPECS = (
         output_name="three_state_filtered_waveform_detail",
         window_csv="three_state_detail_windows.csv",
         legend_loc="upper left",
-        title_template="{freq_label} Band-Pass Detail (Representative {duration:.1f}s)",
+        title_template="{freq_label} Band-Pass Detail",
         linewidth=1.1,
         series=(
             LineSeriesSpec("no_audio", "no audio", "#6b7280"),
@@ -91,7 +91,7 @@ WAVEFORM_PLOT_SPECS = (
         output_name="three_state_representative_filtered_waveform",
         window_csv="three_state_representative_windows.csv",
         legend_loc="lower right",
-        title_template="Representative {freq_label} Waveform ({duration:.2f}s, Reference Included)",
+        title_template="Representative {freq_label} Waveform",
         linewidth=1.1,
         series=(
             LineSeriesSpec("no_audio", "no audio (reference)", "#9ca3af"),

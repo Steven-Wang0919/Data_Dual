@@ -1,0 +1,4 @@
+﻿state,sample_rate,selected_start_s,selected_end_s,phase_shift_s,phase_rad,segment_samples
+no_audio,9000.000000,1.000556,1.200556,-0.000395761,-2.237978482,1800
+without_object,9000.000000,1.830556,2.030556,-0.000434960,-2.459638133,1800
+with_object,9000.000000,1.683333,1.883333,-0.000013879,-0.078484431,1800
